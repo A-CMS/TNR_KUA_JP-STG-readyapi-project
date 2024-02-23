@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="815e3320-15cd-45fe-9b75-274c8c5b1260" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="GET dictionary notifications description" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="2d8c2c9d-ba2c-4c6b-b27a-1442dad0a50c"><con:setting id="815e3320-15cd-45fe-9b75-274c8c5b1260fileName">GET-dictionary-notifications-description</con:setting></con:settings>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="httprequest" name="GET dictionary notifications description" id="aa610ee3-56c8-4942-b9c4-5c016455f6e8">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="63760825-a30c-4c20-a738-2cc4645a41f4" name="GET dictionary notifications description" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="Bearer ${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="${#Project#Content-Type}" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#NNT_INT_URL}/v1/dictionary/notifications?langCode={langCode}&amp;messageKey={messageKey}&amp;realm={realm}</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="91b26ea8-1830-4628-82f0-7a34a3294434" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:assertion type="JsonPath Existence Match" id="2ab2f0f8-b721-4469-8fce-10a693de136c" name="Check for existence of [notifications]">
+            <con:configuration>
+              <path>$['data']['attributes']['notifications']</path>
+              <content>true</content>
+              <allowWildcards>false</allowWildcards>
+              <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+              <ignoreComments>false</ignoreComments>
+            </con:configuration>
+          </con:assertion>
+          <con:assertion type="JsonPath Existence Match" id="8663c944-b2a0-4a61-8888-b6851f132110" name="Check for existence of [languageCode]">
+            <con:configuration>
+              <path>$['data']['attributes']['languageCode']</path>
+              <content>true</content>
+              <allowWildcards>false</allowWildcards>
+              <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+              <ignoreComments>false</ignoreComments>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>langCode</con:name>
+              <con:value>EN</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>EN</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>messageKey</con:name>
+              <con:value/>
+              <con:style>QUERY</con:style>
+              <con:default/>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>realm</con:name>
+              <con:value>a-ncb</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+          </con:parameters>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="GET dictionary notifications description - ccs2" id="c2a0b147-b86d-4640-8211-198ed9af7e06">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="63760825-a30c-4c20-a738-2cc4645a41f4" name="GET dictionary notifications description - ccs2" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="Bearer ${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="${#Project#Content-Type}" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#NG_INT_URL}/notifications/v1/dictionary/notifications?langCode={langCode}&amp;messageKey={messageKey}&amp;realm={realm}</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="91b26ea8-1830-4628-82f0-7a34a3294434" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:assertion type="JsonPath Existence Match" id="2ab2f0f8-b721-4469-8fce-10a693de136c" name="Check for existence of [notifications]">
+            <con:configuration>
+              <path>$['data']['attributes']['notifications']</path>
+              <content>true</content>
+              <allowWildcards>false</allowWildcards>
+              <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+              <ignoreComments>false</ignoreComments>
+            </con:configuration>
+          </con:assertion>
+          <con:assertion type="JsonPath Existence Match" id="8663c944-b2a0-4a61-8888-b6851f132110" name="Check for existence of [languageCode]">
+            <con:configuration>
+              <path>$['data']['attributes']['languageCode']</path>
+              <content>true</content>
+              <allowWildcards>false</allowWildcards>
+              <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+              <ignoreComments>false</ignoreComments>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>langCode</con:name>
+              <con:value>EN</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>EN</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>messageKey</con:name>
+              <con:value/>
+              <con:style>QUERY</con:style>
+              <con:default/>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>realm</con:name>
+              <con:value>n-wso2-ne</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>n-wso2-ne</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+          </con:parameters>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
