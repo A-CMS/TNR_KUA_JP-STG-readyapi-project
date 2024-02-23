@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Access_token" path="/n-ciam-jp-int/access_token" id="83646962-b0e5-4246-8bba-8df0ab18fa84" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="ccc4a4f7-b147-45cf-a02a-d4d2fd6dd2f2"><con:setting id="83646962-b0e5-4246-8bba-8df0ab18fa84fileName">Access_token</con:setting></con:settings>
+      <con:parameters/>
+      <con:method name="Access_token" id="0fe0c51c-bffe-405c-9de5-ae8c416cd745" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>auth_chain</con:name>
+            <con:value>appc</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>appc</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ExternalToken</con:name>
+            <con:value>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJlZDJiZDc1MDQxZjdlNTg4NDE1MzdmNjMyM2Q3NzE1ZWIyODc3NDMiLCJ0eXAiOiJKV1QifQ.eyJhY3IiOiJ1cm46YWthbWFpLWljOm5pc3Q6ODAwLTYzLTM6YWFsOjEiLCJhbXIiOlsicHdkIiwicmJhIl0sImF0X2hhc2giOiI2OWpkMVJPRzBpczlXc1FvX2xKSjd3IiwiYXVkIjpbImI1MDM3MTU4LWVlNjctNGI2YS05NDFkLTg4NzBkZmI4YTRkMiJdLCJhdXRoX3RpbWUiOjE2OTQ1NzgzNTIsImF6cCI6ImI1MDM3MTU4LWVlNjctNGI2YS05NDFkLTg4NzBkZmI4YTRkMiIsImVtYWlsIjoicmVnMTB1c2VyY2NzMkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZXhwIjoxNjk0NTgyMjY2LCJnbG9iYWxfc3ViIjoiY2FwdHVyZS12MTovL25pc3Nhbi1tb3Rvci1jby1sdGQtc3RhZ2luZy50ay1kZXYuamFucmFpbmNhcHR1cmUuY29tL3RzNW54NHpxZzJnd3dteGMzcWF5czk5aGc0L3VzZXIvZWE0NmY0ZDItODdhOS00MmJkLWIyYmEtMDdmZDgzNDcwODJjIiwiaWF0IjoxNjk0NTc4NjY2LCJpc3MiOiJodHRwczovL3FhLWlkLm5pc3Nhbi5pby85ZDUxMThhOC1kYzljLTRlOGYtODkyNC00NzgxY2YzNjlmNDEvbG9naW4iLCJqdGkiOiJyM084WDc0RnduMUJJRjduOEdhZnlVZ2QiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOmZhbHNlLCJzaWQiOiI5ODUwOTQ3ZS03NjExLTRiNDgtOWJlYS1mZWNmZGJhNDkxNjAiLCJzdWIiOiJlYTQ2ZjRkMi04N2E5LTQyYmQtYjJiYS0wN2ZkODM0NzA4MmMifQ.dq5ml9UUASG5TvsfnU5nU7594MzcGYC2joinJ9Z1QLal6t-6qCJIUppcCOu2kg-ojMJDAuxVz1cj4nvrGehXfgt0IALzODX0RfPZlDw1LCBwcIpX9Z6TGuMo0xqFl7AN1oMgfQimlwkLRx3FASbUM2DMVlv-_lt6uq4S8mSOFnGpV8lF3UeoX7NZx4mTTNUvu5VfFkfzjJNumrq6rcWYFec6B6uiP1hsB6u0MOxZ1qPCI5lajr26zB4i6M6I_N8C9_hWDIgtlxRCxo1g9nLreHctEcajkLMCyGwyGUhC8W8luX2cLeXqSANeaUn--57wfGRLnWPbOjXpnaDMcWQ0PA</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Content-Type</con:name>
+            <con:value>application/x-www-form-urlencoded</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="{{KAUTH}}/n-ciam-jp-int/access_token" id="7945ab3e-ccc8-40b8-96bc-b98ceb7edb9f" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>${#Project#KAUTH}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="auth_chain" value="appc"/>
+            <con:entry key="ExternalToken" value="eyJhbGciOiJSUzI1NiIsImtpZCI6ImJlZDJiZDc1MDQxZjdlNTg4NDE1MzdmNjMyM2Q3NzE1ZWIyODc3NDMiLCJ0eXAiOiJKV1QifQ.eyJhY3IiOiJ1cm46YWthbWFpLWljOm5pc3Q6ODAwLTYzLTM6YWFsOjEiLCJhbXIiOlsicHdkIiwicmJhIl0sImF0X2hhc2giOiI2OWpkMVJPRzBpczlXc1FvX2xKSjd3IiwiYXVkIjpbImI1MDM3MTU4LWVlNjctNGI2YS05NDFkLTg4NzBkZmI4YTRkMiJdLCJhdXRoX3RpbWUiOjE2OTQ1NzgzNTIsImF6cCI6ImI1MDM3MTU4LWVlNjctNGI2YS05NDFkLTg4NzBkZmI4YTRkMiIsImVtYWlsIjoicmVnMTB1c2VyY2NzMkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZXhwIjoxNjk0NTgyMjY2LCJnbG9iYWxfc3ViIjoiY2FwdHVyZS12MTovL25pc3Nhbi1tb3Rvci1jby1sdGQtc3RhZ2luZy50ay1kZXYuamFucmFpbmNhcHR1cmUuY29tL3RzNW54NHpxZzJnd3dteGMzcWF5czk5aGc0L3VzZXIvZWE0NmY0ZDItODdhOS00MmJkLWIyYmEtMDdmZDgzNDcwODJjIiwiaWF0IjoxNjk0NTc4NjY2LCJpc3MiOiJodHRwczovL3FhLWlkLm5pc3Nhbi5pby85ZDUxMThhOC1kYzljLTRlOGYtODkyNC00NzgxY2YzNjlmNDEvbG9naW4iLCJqdGkiOiJyM084WDc0RnduMUJJRjduOEdhZnlVZ2QiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOmZhbHNlLCJzaWQiOiI5ODUwOTQ3ZS03NjExLTRiNDgtOWJlYS1mZWNmZGJhNDkxNjAiLCJzdWIiOiJlYTQ2ZjRkMi04N2E5LTQyYmQtYjJiYS0wN2ZkODM0NzA4MmMifQ.dq5ml9UUASG5TvsfnU5nU7594MzcGYC2joinJ9Z1QLal6t-6qCJIUppcCOu2kg-ojMJDAuxVz1cj4nvrGehXfgt0IALzODX0RfPZlDw1LCBwcIpX9Z6TGuMo0xqFl7AN1oMgfQimlwkLRx3FASbUM2DMVlv-_lt6uq4S8mSOFnGpV8lF3UeoX7NZx4mTTNUvu5VfFkfzjJNumrq6rcWYFec6B6uiP1hsB6u0MOxZ1qPCI5lajr26zB4i6M6I_N8C9_hWDIgtlxRCxo1g9nLreHctEcajkLMCyGwyGUhC8W8luX2cLeXqSANeaUn--57wfGRLnWPbOjXpnaDMcWQ0PA"/>
+            <con:entry key="Content-Type" value="application/x-www-form-urlencoded"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>auth_chain</con:entry>
+            <con:entry>ExternalToken</con:entry>
+            <con:entry>Content-Type</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>

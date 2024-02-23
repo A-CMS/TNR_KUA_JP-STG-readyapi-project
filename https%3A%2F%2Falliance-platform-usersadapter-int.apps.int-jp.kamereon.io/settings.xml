@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="0b8be410-7bd1-408a-81ad-d9b605ab5fc2" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://alliance-platform-usersadapter-int.apps.int-jp.kamereon.io" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings id="0c97b334-211e-435b-b07e-48a086892b74"><con:setting id="0b8be410-7bd1-408a-81ad-d9b605ab5fc2fileName">https%3A%2F%2Falliance-platform-usersadapter-int.apps.int-jp.kamereon.io</con:setting></con:settings>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>https://alliance-platform-usersadapter-int.apps.int-jp.kamereon.io</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    
+    
+  </con:interface>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2c2d71b3-4fbe-4b4d-9b5b-15ac2ec9154e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="JP_STG_User_Pairing" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="e09e658c-acfd-46ba-bd2f-34fb694cf876"><con:setting id="2c2d71b3-4fbe-4b4d-9b5b-15ac2ec9154efileName">JP_STG_User_Pairing</con:setting></con:settings>
+      <con:testStep type="httprequest" name="OTP_Gen_ccs1" id="7c7b7e98-1b43-49b3-a4b1-d93f84bc9c5a" disabled="true">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="04ac86f5-1695-40fd-946a-6e86e48b1245" name="OTP_Gen_ccs1" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KCA_STG_URL}</con:endpoint>
+          <con:request>{
+    "data": {
+        "type": "OTP",
+        "attributes": {
+            "vin": "FE0-350004",
+            "textLine1": "please enter the code",
+            "textLine2": "In mobile app",
+            "buttonLabel": "Its done"
+        }
+    }
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="PropertyTransfer 1" id="51fe4913-9b9d-4da1-aa17-34b1b0a52360" disabled="true">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false">
+            <con:name>code</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>OTP_Gen_ccs1</con:sourceStep>
+            <con:sourcePath>$['data']['attributes']['code']</con:sourcePath>
+            <con:targetType>verify_code</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="User pairing_ccs_stg" id="17bacf32-ec7c-49e4-935b-ac669b5aaf0b" disabled="true">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="04ac86f5-1695-40fd-946a-6e86e48b1245" name="User pairing_ccs_stg" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>https://alliance-platform-usersadapter-staging.apps.stage-jp.kamereon.io/user-adapter/v1/users/678832/vehicles/FE0-350004</con:endpoint>
+          <con:request>{ 
+	"data": 
+{ 
+"type": "LinkUserVehicle", 
+"id": "", 
+"attributes": 
+{ 
+"verificationCode":"${#Project#verify_code}", 
+"role":"OWNER" 
+} 
+} 
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="User_Info" id="75705f88-f17c-410f-9233-f9e4ee3df624" disabled="true">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="9a8d19f9-1ede-4062-bc2d-f9b1f38b95ce" name="User_Info" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Cotent-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>https://alliance-platform-usersadapter-staging.apps.stage-jp.kamereon.io/user-adapter/v1/users/678832</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="OTP_Gen_Vin-75SJPSTEP01577937" id="a84b0c75-1a14-4635-aa7b-c80839f99c5e">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="04ac86f5-1695-40fd-946a-6e86e48b1245" name="OTP_Gen_Vin-75SJPSTEP01577937" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KCA_STG_URL}</con:endpoint>
+          <con:request>{
+    "data": {
+        "type": "OTP",
+        "attributes": {
+            "vin": "75SJPSTEP01577936",
+            "textLine1": "please enter the code",
+            "textLine2": "In mobile app",
+            "buttonLabel": "Its done"
+        }
+    }
+}</con:request>
+          <con:assertion type="Valid HTTP Status Codes" id="cad2ab5c-12d1-44a2-a24c-e0049acb094f" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration><codes>201</codes></con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="PropertyTransfer 2" id="086acdf8-452d-45da-8828-f69301c4a786"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" entitize="false" transferToAll="false" transferChildNodes="false"><con:name>code</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>OTP_Gen_Vin-75SJPSTEP01577937</con:sourceStep><con:sourcePath>$['data']['attributes']['code']</con:sourcePath><con:targetType>VIN_937</con:targetType><con:targetStep>#Project#</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="PropertyTransfer 1-75SJPSTEP01577937" id="98715c8f-8f34-4818-9a3f-0ab27bba21c5" disabled="true">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false" ignoreEmpty="false" transferChildNodes="false">
+            <con:name>code</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>OTP_Gen_ccs1</con:sourceStep>
+            <con:sourcePath>$['data']['attributes']['code']</con:sourcePath>
+            <con:targetType>verify_code</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="User pairing_ccs_stg-75SJPSTEP01577937" id="f69ba50b-75e3-4f4b-8f4a-a12ef49b5485">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="04ac86f5-1695-40fd-946a-6e86e48b1245" name="User pairing_ccs_stg-75SJPSTEP01577937" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KUA_STG_URL}/user-adapter/v1/users/678834/vehicles/75SJPSTEP01577936</con:endpoint>
+          <con:request>{ 
+	"data": 
+{ 
+"type": "LinkUserVehicle", 
+"id": "", 
+"attributes": 
+{ 
+"verificationCode":"${#Project#verify_code}", 
+"role":"OWNER" 
+} 
+} 
+}</con:request>
+          <con:assertion type="Valid HTTP Status Codes" id="a9bd9d82-c0d5-4385-9a5a-16f8ed903f3b" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="User_Info-75SJPSTEP01577937" id="7460186d-16fd-478c-961c-f478cc36578b">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="9a8d19f9-1ede-4062-bc2d-f9b1f38b95ce" name="User_Info-75SJPSTEP01577937" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Cotent-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KUA_STG_URL}/user-adapter/v1/users/678834</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="0a0a7264-0661-48f9-adb6-d9be3f4aad08" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration><codes>200</codes></con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="Vehicle_Info-75SJPSTEP01577937" id="a17bb41d-3b56-45c7-99db-8b8ad31a184a">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="9a8d19f9-1ede-4062-bc2d-f9b1f38b95ce" name="Vehicle_Info-75SJPSTEP01577937" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Cotent-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KUA_STG_URL}/user-adapter/v1/vehicles/75SJPSTEP01577936/users</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="1b9ef004-e179-45e1-bedc-a7133123a65b" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="properties" name="Properties 1" id="29ca4dfb-2366-4083-be7e-b7f7516d39e8"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>code</con:name></con:property></con:properties></con:config></con:testStep><con:properties/>
+      <con:reportParameters/>
+    </con:testCase>

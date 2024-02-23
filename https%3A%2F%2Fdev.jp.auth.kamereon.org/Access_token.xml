@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Access_token" path="/kauth/oauth2/k-internal-int/access_token" id="2676901d-7144-4648-adc4-4f751c48d5fd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="04c06c33-1bc6-4864-b264-c60524ea0179"><con:setting id="2676901d-7144-4648-adc4-4f751c48d5fdfileName">Access_token</con:setting></con:settings>
+      <con:parameters/>
+      <con:method name="Access_token" id="e9aee69b-bc84-45b6-9fbf-89ed1ecbe4a7" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>grant_type</con:name>
+            <con:value>client_credentials</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>client_credentials</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>client_id</con:name>
+            <con:value>k-internal-postman-grc-int</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>k-internal-postman-grc-int</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>client_secret</con:name>
+            <con:value>zVzTwjgEZHzH1-cEOaAC0hIpC5RKhpERLORpqRhN2zKyddrlP/5UtqVRrQh8-s1p</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>zVzTwjgEZHzH1-cEOaAC0hIpC5RKhpERLORpqRhN2zKyddrlP/5UtqVRrQh8-s1p</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="INT-KAUTH ACCESS TOKEN Copy" id="dcf9baca-7fe0-443f-aabc-6e01d006938a" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://dev.jp.auth.kamereon.org</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="grant_type" value="client_credentials"/>
+            <con:entry key="client_secret" value="zVzTwjgEZHzH1-cEOaAC0hIpC5RKhpERLORpqRhN2zKyddrlP/5UtqVRrQh8-s1p"/>
+            <con:entry key="client_id" value="k-internal-postman-grc-int"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>grant_type</con:entry>
+            <con:entry>client_id</con:entry>
+            <con:entry>client_secret</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>

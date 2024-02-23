@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Users" path="/user-adapter/v1/users" id="678f68ea-b77d-4238-9b60-4aa75cc9243c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="08ebb800-d6bb-42bb-bc3c-4a3431c5b172"><con:setting id="678f68ea-b77d-4238-9b60-4aa75cc9243cfileName">Users</con:setting></con:settings>
+      <con:parameters/>
+      <con:method name="Users" id="98d4e5f4-27f4-4052-a065-cfc6b3bb8e2f" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Authorization</con:name>
+            <con:value>Bearer ${#Project#LATEST_AUTH_TOKEN}</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Content-Type</con:name>
+            <con:value>application/vnd.api+json</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Create User Copy" id="a6ef3017-d655-4061-baf7-01ed7882c2b7" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://alliance-platform-usersadapter-int.apps.int-jp.kamereon.io</con:endpoint>
+          <con:request>{\r
+    "data": {\r
+        "type": "User",\r
+        "attributes": {\r
+            "realm": "n-ciam-jp",\r
+            "idp": "JPCIAMCCS2",\r
+            "ropId": "ea46f4d2-87a9-42bd-b2ba-07fd8347082c"\r
+        }\r
+    }\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="Authorization" value="Bearer ${#Project#LATEST_AUTH_TOKEN}"/>
+            <con:entry key="Content-Type" value="application/vnd.api+json"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Authorization</con:entry>
+            <con:entry>Content-Type</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>

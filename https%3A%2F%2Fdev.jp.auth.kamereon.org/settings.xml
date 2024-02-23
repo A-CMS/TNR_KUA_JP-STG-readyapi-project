@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="6222905a-a658-4e5e-b168-92c7afbb8ea8" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://dev.jp.auth.kamereon.org" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings id="6be66309-8582-4176-a7bf-023613a8d7ef"><con:setting id="6222905a-a658-4e5e-b168-92c7afbb8ea8fileName">https%3A%2F%2Fdev.jp.auth.kamereon.org</con:setting></con:settings>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://dev.jp.auth.kamereon.org</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    
+  </con:interface>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4b858380-f9f2-43e0-be5d-74f31f030465" created="3.48.0" activeEnvironment="JP_STG" encryptionMode="Not encrypted" name="TNR_KUA_JP STG" projectVersion="" updated="3.51.0" resourceRoot="${projectDir}" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="4b858380-f9f2-43e0-be5d-74f31f030465fileName">TNR_KUA_JP STG-readyapi-project</con:setting></con:settings>
+  
+  
+  
+  
+  
+  <con:requirements/>
+  <con:properties>
+    <con:property>
+      <con:name>LATEST_AUTH_TOKEN</con:name>
+    <con:value>Fga7_EL0Xrdd2JZi6r7zxVW24s0.*AAJTSQACMDIAAlNLABw0QUZnODYvdEdkaXVnUmp2MkJzZkpjM1lnUU09AAR0eXBlAANDVFMAAlMxAAIwMw..*</con:value></con:property>
+    <con:property>
+      <con:name>KAUTH</con:name>
+    </con:property>
+    <con:property>
+      <con:name>KCA_STG_URL</con:name>
+    </con:property>
+    <con:property>
+      <con:name>KUA_STG_URL</con:name>
+    </con:property>
+    <con:property>
+      <con:name>Authorization</con:name>
+    </con:property>
+    <con:property>
+      <con:name>code</con:name>
+    </con:property>
+    <con:property>
+      <con:name>verify_code</con:name>
+    </con:property>
+    <con:property>
+      <con:name>access_token</con:name>
+    </con:property>
+    <con:property>
+      <con:name>verify_code2</con:name>
+    </con:property>
+    <con:property>
+      <con:name>verify_code3</con:name>
+    </con:property>
+    <con:property>
+      <con:name>verify_code4</con:name>
+    </con:property>
+  <con:property><con:name>location_value</con:name></con:property><con:property><con:name>ropid</con:name></con:property><con:property><con:name>fid</con:name></con:property><con:property><con:name>VIN_937</con:name></con:property></con:properties>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="56722cba-6f8c-40b5-99d2-7505ad15e616" name="JP_STG" index="0">
+    <con:property>
+      <con:name>LATEST_AUTH_TOKEN</con:name>
+      <con:value>Fga7_EL0Xrdd2JZi6r7zxVW24s0.*AAJTSQACMDIAAlNLABw0QUZnODYvdEdkaXVnUmp2MkJzZkpjM1lnUU09AAR0eXBlAANDVFMAAlMxAAIwMw..*</con:value>
+    </con:property>
+    <con:property>
+      <con:name>KAUTH</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>KCA_STG_URL</con:name>
+      <con:value>https://alliance-platform-caradapter-staging.apps.stage-jp.kamereon.io/car-adapter/v1/otps</con:value>
+    </con:property>
+    <con:property>
+      <con:name>KUA_STG_URL</con:name>
+      <con:value>https://alliance-platform-usersadapter-staging.apps.stage-jp.kamereon.io</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Authorization</con:name>
+      <con:value>Bearer ${#Project#access_token}</con:value>
+    </con:property>
+    <con:property>
+      <con:name>code</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>verify_code</con:name>
+      <con:value>506391</con:value>
+    </con:property>
+    <con:property>
+      <con:name>access_token</con:name>
+      <con:value>eyJ0eXAiOiJKV1QiLCJraWQiOiJZRzU1N3duVzJ5SGRPb1FuaFQvM3o4ZjdCY1U9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJrLWludGVybmFsLXBvc3RtYW4teG02LXN0YSIsImN0cyI6Ik9BVVRIMl9TVEFURUxFU1NfR1JBTlQiLCJhdWRpdFRyYWNraW5nSWQiOiJmYTNhZDc1ZS03ZmJjLTRjYjctYjkyNy03OTk2YjgxYWExNTktMzAwMzc2MjAiLCJpc3MiOiJodHRwczovL2Rldi5qcC5hdXRoLmthbWVyZW9uLm9yZzo0NDMva2F1dGgvb2F1dGgyL2staW50ZXJuYWwtc3RhIiwidG9rZW5OYW1lIjoiYWNjZXNzX3Rva2VuIiwidG9rZW5fdHlwZSI6IkJlYXJlciIsImF1dGhHcmFudElkIjoiOGUwYWQzYzItYWFjZC00NzU4LWEzYzctNGFkODMzYjc5OGZhIiwiYXVkIjoiay1pbnRlcm5hbC1wb3N0bWFuLXhtNi1zdGEiLCJuYmYiOjE3MDI0NTkzMjcsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJzY29wZSI6WyJhY21zLmpwLmtjYS5jYXJhY3Rpb24iLCJhY21zLmpwLmtjYS5jYXJkYXRhIiwiYWNtcy5qcC5rY2EuY2Fyc2V0dGluZ3MiLCJhY21zLmpwLmtjYS5kdGJ4IiwiYWNtcy5qcC5rY2EuaGlzdG9yeSIsImFjbXMuanAua2NhLm11bHRpY21kIiwiYWNtcy5qcC5rY2Eubm90aWYiLCJhY21zLmpwLmtjYS5vdHBjaGtzIiwiYWNtcy5qcC5rY2Eub3RwcyIsImFjbXMuanAua2NhLnByaXZhY3kiLCJhY21zLmpwLmtkaWFnLmJmZiIsImFjbXMuanAua2RpYWcuc2VydmljZS5yIiwiYWNtcy5qcC5rZGlzLmRpc2NvdmVyeSIsImFjbXMuanAua2Rpcy5tbm8iLCJhY21zLmpwLmtkaXMudmVoIiwiYWNtcy5qcC5rZGlzLnZlaHJlZ2lvbiIsImFjbXMuanAua2ZvZC5hY3RpdmF0aW9uLnciLCJhY21zLmpwLmtuYS5jdXN0b20udyIsImFjbXMuanAua25hLmRpY3Rpb25hcnkuciIsImFjbXMuanAua25hLmRpY3Rpb25hcnkudyIsImFjbXMuanAua25hLmhpc3RvcnkuciIsImFjbXMuanAua25hLmhpc3RvcnkudyIsImFjbXMuanAua25hLm5vdGlmaWNhdGlvbnMudyIsImFjbXMuanAua25hLnJ1bGVzLnIiLCJhY21zLmpwLmtuYS5ydWxlcy53IiwiYWNtcy5qcC5rbmEuc2V0dGluZ3MuciIsImFjbXMuanAua25hLnNldHRpbmdzLnciLCJhY21zLmpwLmtucG9wLmluaXQiLCJhY21zLmpwLmtucG9wLnZhbGlkYXRlIiwiYWNtcy5qcC5rcGRhLnRyaXAiLCJhY21zLmpwLmtwb3AuYjJiLnciLCJhY21zLmpwLmtzYS5wYXJ0bm90aWYiLCJhY21zLmpwLmtzYS5zZXJ2aWNlLmFjdGl2YXRpb24uciIsImFjbXMuanAua3NhLnNlcnZpY2UuYWN0aXZhdGlvbi53IiwiYWNtcy5qcC5rc2Euc2VydmljZS5jYXRhbG9ndWUuciIsImFjbXMuanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnciLCJhY21zLmpwLmtzYS5zaWQuYWN0aXZhdGlvbi5yIiwiYWNtcy5qcC5rc2Euc2lkLmFjdGl2YXRpb24udyIsImFjbXMuanAua3NjLnIiLCJhY21zLmpwLmt0cy5hcHBzIiwiYWNtcy5qcC5rdWEudXNlci5mZWRlcmF0ZS5yIiwiYWNtcy5qcC5rdWEudXNlci5mZWRlcmF0ZS53IiwiYWNtcy5qcC5rdWEudXNlci5yIiwiYWNtcy5qcC5rdWEudXNlci53IiwiYWNtcy5qcC5rdmcuZmxlZXQuciIsImFjbXMuanAua3ZnLmZsZWV0LnciLCJhY21zLmpwLmt2Zy52ZWhpY2xlLXRyYWNraW5nLWNvbnNlbnQuciIsImFjbXMuanAua3ZnLnZlaGljbGUtdHJhY2tpbmctY29uc2VudC53IiwiYWNtcy5qcC5rdnNkLnNwZWMiLCJhY21zLmpwLnRzcC5hYWNuIiwiYWNtcy5qcC50c3AuYWNuIiwiYWNtcy5qcC50c3AuYmNhbGwiLCJhY21zLmpwLnRzcC5jY2FsbCIsImFjbXMuanAudHNwLmVjYWxsIiwiYWNtcy5qcC50c3AuaGNhbGwiLCJhY21zLmpwLnRzcC5wdXNocG9pIiwiYWNtcy5qcC50c3AucmVmcmVzaGxvY2F0aW9uIiwiYWNtcy5qcC50c3AucmhsIiwiYWNtcy5qcC50c3Aucmx1IiwiYWNtcy5qcC50c3Auc3Vic2NyaXB0aW9uIiwiYWNtcy5qcC50c3Auc3Z0IiwiYWNtcy5qcC50c3Auc3Z0YiIsImFjbXMuanAudHNwLnVzZXIiLCJrYW0uanAua2NhLmIyYmRhdGEiLCJrYW0uanAua2NhLmJmcCIsImthbS5qcC5rY2EuY2FyYWN0aW9uIiwia2FtLmpwLmtjYS5jYXJkYXRhIiwia2FtLmpwLmtjYS5jYXJzZXR0aW5ncyIsImthbS5qcC5rY2EuY3J1ZCIsImthbS5qcC5rY2EuZGlzY292ZXJ5Iiwia2FtLmpwLmtjYS5kb25nbGUiLCJrYW0uanAua2NhLmR0YngiLCJrYW0uanAua2NhLmZvdGEuYWN0aW9uIiwia2FtLmpwLmtjYS5oaXN0b3J5Iiwia2FtLmpwLmtjYS5qb3VybmV5cyIsImthbS5qcC5rY2Eua2RpYWciLCJrYW0uanAua2NhLm11bHRpY21kIiwia2FtLmpwLmtjYS5ub3RpZiIsImthbS5qcC5rY2Eub3RwY2hrcyIsImthbS5qcC5rY2Eub3RwcyIsImthbS5qcC5rY2EucHJpdmFjeSIsImthbS5qcC5rY2Euc3JwIiwia2FtLmpwLmtjYS50ZXN0Iiwia2FtLmpwLmtjYS50c3AiLCJrYW0uanAua2RpYWcuaGVhbHRoLXN0YXR1cyIsImthbS5qcC5rZGlhZy5rZGlhZyIsImthbS5qcC5rZGlzLmRpc2NvdmVyeSIsImthbS5qcC5rZGlzLmRvbmdsZSIsImthbS5qcC5rZGlzLmtkaWFnIiwia2FtLmpwLmtkaXMudGVzdCIsImthbS5qcC5rZGlzLnZlaCIsImthbS5qcC5rZGlzLnZlaGJhY2twb3J0Iiwia2FtLmpwLmtkaXMudmVoZGVsZXRpb24iLCJrYW0uanAua2Rpcy52ZWhpZGVudGl0eSIsImthbS5qcC5rZGlzLnZlaG1vY2siLCJrYW0uanAua2Rpcy52ZWhyZWdpb24iLCJrYW0uanAua2Rpcy52ZWh1cGRhdGUiLCJrYW0uanAua2ZhLmRhdGEuciIsImthbS5qcC5rZmEuZXh0cmFjdC5yIiwia2FtLmpwLmtmYS5leHRyYWN0LnciLCJrYW0uanAua2ZhLmZsZWV0LnIiLCJrYW0uanAua2ZhLmZsZWV0LnciLCJrYW0uanAua2ZhLmtkaWFnIiwia2FtLmpwLmtmYS5tdWx0aWNtZCIsImthbS5qcC5rbG9nLmtkaWFnIiwia2FtLmpwLmtsb2cuciIsImthbS5qcC5rbG9nLnciLCJrYW0uanAua21uLnIiLCJrYW0uanAua21uLnciLCJrYW0uanAua25hLmN1c3RvbS53Iiwia2FtLmpwLmtuYS5rZGlhZyIsImthbS5qcC5rbmEuc2V0dGluZ3MuciIsImthbS5qcC5rbmEudHJpZ2dlci53Iiwia2FtLmpwLmtuYS53Iiwia2FtLmpwLmtuby53Iiwia2FtLmpwLmtucG9wLnIiLCJrYW0uanAua25wb3AudmFsaWRhdGUiLCJrYW0uanAua3BkYS5pbnRlcm5hbCIsImthbS5qcC5rcGRhLnRyaXAiLCJrYW0uanAua3NhLmtkaWFnIiwia2FtLmpwLmtzYS5zZXJ2aWNlLmFjdGl2YXRpb24uciIsImthbS5qcC5rc2Euc2VydmljZS5hY3RpdmF0aW9uLnciLCJrYW0uanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnIiLCJrYW0uanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnciLCJrYW0uanAua3NjLnIiLCJrYW0uanAua3RvLnRva2VuIiwia2FtLmpwLmt0cy5hcHBzIiwia2FtLmpwLmt0cy5rZGlhZyIsImthbS5qcC5rdHMudHNwLmNvbmYuciIsImthbS5qcC5rdHMudHNwLmNvbmYudyIsImthbS5qcC5rdWEua2RpYWciLCJrYW0uanAua3VhLnN1cHBvcnQuciIsImthbS5qcC5rdWEuc3VwcG9ydC53Iiwia2FtLmpwLmt1YS51c2VyLmZlZGVyYXRlLnIiLCJrYW0uanAua3VhLnVzZXIuZmVkZXJhdGUudyIsImthbS5qcC5rdWEudXNlci5yIiwia2FtLmpwLmt1YS51c2VyLnciLCJrYW0uanAua3V2cy5hdXRob3JpdHkuciIsImthbS5qcC5rdXZzLmF1dGhvcml0eS53Iiwia2FtLmpwLmt1dnMucGVybWlzc2lvbi5yIiwia2FtLmpwLmt1dnMucGVybWlzc2lvbi53Iiwia2FtLmpwLmt2Zy5mbGVldC5yIiwia2FtLmpwLmt2Zy5mbGVldC53Iiwia2FtLmpwLmt2Zy52ZWhpY2xlLXRyYWNraW5nLWNvbnNlbnQuciIsImthbS5qcC5rdmcudmVoaWNsZS10cmFja2luZy1jb25zZW50LnciLCJrYW0uanAua3ZzLnNlcnZpY2VzLnIiLCJrYW0uanAua3ZzLnNlcnZpY2VzLnciLCJrYW0uanAubmFtLmFjY291bnQuciIsImthbS5qcC5uYW0uYWNjb3VudC53Iiwia2FtLmpwLm5hbS5zdXBwb3J0LnIiLCJrYW0uanAucG5jaCIsImthbS5qcC5zY2hlZHVsZXIudGFzayIsImthbS5qcC5zY2hlZHVsZXIudGVzdCIsImthbWVyZW9uLmpwLnNlcnZpY2Uuc3luY2hyb25pemUiXSwiYXV0aF90aW1lIjoxNzAyNDU5MzI3LCJyZWFsbSI6Ii9rLWludGVybmFsLXN0YSIsImV4cCI6MTcwMjQ2MjkyNywiaWF0IjoxNzAyNDU5MzI3LCJleHBpcmVzX2luIjozNjAwLCJqdGkiOiJjZWQxNTkyYi04MWEwLTRmN2MtYjFjYy02MjgzNzJlY2QyMWQiLCJ1X3R5cGUiOiJzIn0.DglwNgmuBICDnQYdYjUZdCzR0UdC34xZ7TB5udzEHJbZsBWo0E8HQ9ta3OzUVDbtTPbM7qJzE3whKfEnKx_1tegOu4OizYznpFuC1rfCsZueXK5vpA9PMeogfTvzpyU65XbLRka5i13VXL3pN-QYWoQkW7xY3T8p1GifPZqsw1o9S4Hhk1kgqXdAs42QLBEYDuBQccu7MrtOojq7jATtasOPQwzzLNaIGSiRpac0ZIB8JwqDTxyX8kDr9FLWPdgR2gbpdZ1JzWCKpijI8s6wyew5KqBJjM7x1VE66fx_SFcVFe4vJphaT9HVGmzFyJ0l3tmAyY2j-O8lFYN24jG0_RqXpDPPaXHQRsb49jQ6ZCn54KIzoFgZ-DpBjVmlJueSpLmmEJbxEQRZ-JKd6S9TUREEMSkzDqPMFUJO6BXgjLrYrHOgmZdpOKg7w5YdxuiHbmmCNQ_iYGYp9KE6Yblwe_bvrpVt_ZaTsskegz3SYJDDzeGC_2map7UFjD--o4QWwIwdGQDi4c1vKOkify7RkAMqbwN5v-Wwhqe3fOsAoq0TLoE7CMjsj1S6UoZcn5FdbRub66Q3TjxHCKejppEMqQJMZnvuTJkHWivgWOGZlcUuaZbGiZ5EC9ABlnLoJWrponxIAKqQhhrQdfguJfkK932DT7DunWqt3qnYdqqgTlI</con:value>
+    </con:property>
+    <con:property>
+      <con:name>verify_code2</con:name>
+      <con:value>357209</con:value>
+    </con:property>
+    <con:property>
+      <con:name>verify_code3</con:name>
+      <con:value>704700</con:value>
+    </con:property>
+    <con:property>
+      <con:name>verify_code4</con:name>
+      <con:value/>
+    </con:property>
+    <con:property><con:name>location_value</con:name><con:value>[https://dev.jp.auth.kamereon.org/kauth/UI/Login?realm=/a-ncb-int&amp;goto=https://dev.jp.auth.kamereon.org:443/kauth/oauth2/realms/root/realms/a-ncb-int/authorize?client_id%3Da-ncb-int-poc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520vehicles%26redirect_uri%3Dhttp://localhost:4200%26nonce%3Dtest%26state%3Dtest%26realm%3Da-ncb-int]</con:value></con:property><con:property><con:name>ropid</con:name><con:value>3d0164cf-8352-40c3-9db6-5d3003458aa4</con:value></con:property><con:property><con:name>fid</con:name><con:value>JPCIAM-3d0164cf-8352-40c3-9db6-5d3003458aa4</con:value></con:property><con:property><con:name>VIN_937</con:name><con:value>720830</con:value></con:property><con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+</con:soapui-project>

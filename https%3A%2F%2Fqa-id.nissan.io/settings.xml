@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="221b4750-9fca-4cd0-acc7-1e1f79d35c99" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://qa-id.nissan.io" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings id="7d88d662-907a-4ef0-b492-c919c5dc268f"><con:setting id="221b4750-9fca-4cd0-acc7-1e1f79d35c99fileName">https%3A%2F%2Fqa-id.nissan.io</con:setting></con:settings>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>https://qa-id.nissan.io</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    
+  </con:interface>

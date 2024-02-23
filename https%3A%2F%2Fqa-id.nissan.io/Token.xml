@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Token" path="/9d5118a8-dc9c-4e8f-8924-4781cf369f41/login/token" id="6cbeb42a-d2c4-4757-9f0b-bffe1ef99686" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="269d6bef-0c37-41b6-8648-2ef2e1af4bae"><con:setting id="6cbeb42a-d2c4-4757-9f0b-bffe1ef99686fileName">Token</con:setting></con:settings>
+      <con:parameters/>
+      <con:method name="Token" id="38a06bf2-44ca-4fbe-a3e3-28c021376f99" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Content-Type</con:name>
+            <con:value>application/x-www-form-urlencoded</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="https://qa-id.nissan.io/9d5118a8-dc9c-4e8f-8924-4781cf369f41/login/token" id="53ac1726-8f22-4cd7-a22b-7054b00ae99b" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://qa-id.nissan.io</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="Content-Type" value="application/x-www-form-urlencoded"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Content-Type</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>

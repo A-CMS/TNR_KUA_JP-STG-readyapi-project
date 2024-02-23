@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Token-info" path="/user-adapter/v1/users/token-info" id="81c10cc9-81ed-4d93-8c0e-a888257a17c4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="15a54a1a-9d1f-4fa2-97eb-54f102ec67f0"><con:setting id="81c10cc9-81ed-4d93-8c0e-a888257a17c4fileName">Token-info</con:setting></con:settings>
+      <con:parameters/>
+      <con:method name="Token-info" id="0487041c-6053-4400-8e38-944f8453f458" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Content-Type</con:name>
+            <con:value>application/vnd.api+json</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Authorization</con:name>
+            <con:value>Bearer 2d175321-c0e1-4681-925a-15d30a5b49ca</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="User token information" id="bfed0c6e-b825-41bc-a669-3c028bb14831" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://alliance-platform-usersadapter-int.apps.int-jp.kamereon.io</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="Authorization" value="Bearer 2d175321-c0e1-4681-925a-15d30a5b49ca"/>
+            <con:entry key="Content-Type" value="application/vnd.api+json"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Content-Type</con:entry>
+            <con:entry>Authorization</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:method name="Token-info 2" id="60fa9240-00bc-433f-ac1b-73f019da7e74" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Content-Type</con:name>
+            <con:value>application/vnd.api+json</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Authorization</con:name>
+            <con:value>Bearer 2d175321-c0e1-4681-925a-15d30a5b49ca</con:value>
+            <con:style>HEADER</con:style>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="User token information Copy" id="236fedca-ec76-4192-bef6-49473f87160a" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://alliance-platform-usersadapter-int.apps.int-jp.kamereon.io</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="Authorization" value="Bearer 2d175321-c0e1-4681-925a-15d30a5b49ca"/>
+            <con:entry key="Content-Type" value="application/vnd.api+json"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Content-Type</con:entry>
+            <con:entry>Authorization</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>

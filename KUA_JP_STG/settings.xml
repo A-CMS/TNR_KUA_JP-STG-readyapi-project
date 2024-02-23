@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="4113707e-7479-48f8-8fa8-e6222e140ebf" name="KUA_JP_STG" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings id="6dad9584-1318-43c1-a263-3077015f1fc2"><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="4113707e-7479-48f8-8fa8-e6222e140ebffileName">KUA_JP_STG</con:setting></con:settings>
+    <con:runType>SEQUENTIAL</con:runType>
+    
+    
+    
+    
+    
+    
+    <con:properties/>
+    <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:testSuite>

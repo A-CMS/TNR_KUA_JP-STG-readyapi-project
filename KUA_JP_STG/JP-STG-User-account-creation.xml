@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="adf8b581-7754-4c33-9bfe-5f5e1618c387" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="JP STG User account creation" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="3713a010-2583-4a45-9396-7bf464079561"><con:setting id="adf8b581-7754-4c33-9bfe-5f5e1618c387fileName">JP-STG-User-account-creation</con:setting></con:settings>
+      <con:testStep type="restrequest" name="Access_token - INT-KAUTH ACCESS TOKEN Copy" id="8c438578-2a09-496a-9ff2-07470b898d9b" disabled="true">
+        <con:settings/>
+        <con:config service="https://dev.jp.auth.kamereon.org" resourcePath="/kauth/oauth2/k-internal-int/access_token" methodName="Access_token" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Access_token - INT-KAUTH ACCESS TOKEN Copy" id="dcf9baca-7fe0-443f-aabc-6e01d006938a" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://dev.jp.auth.kamereon.org</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="client_secret" value="zVzTwjgEZHzH1-cEOaAC0hIpC5RKhpERLORpqRhN2zKyddrlP/5UtqVRrQh8-s1p"/>
+              <con:entry key="client_id" value="k-internal-postman-grc-int"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>grant_type</con:entry>
+              <con:entry>client_id</con:entry>
+              <con:entry>client_secret</con:entry>
+            </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="Access token stg" id="e313b7fe-767e-47f6-accd-b1823dc35504">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="8edbd202-adfc-4cd1-b0c2-86654a68b419" name="Access token stg" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-Type" value="application/x-www-form-urlencoded" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/oauth2/k-internal-sta/access_token</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="29393ea2-9dbc-4ff0-afdf-fa190046165d" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>grant_type</con:name>
+              <con:value>client_credentials</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>client_credentials</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_id</con:name>
+              <con:value>k-internal-postman-xm6-sta</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>k-internal-postman-xm6-sta</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_secret</con:name>
+              <con:value>MG_MUR1xBkXcO3U1mYSpnGptU/UQnirTO94Y7rRdgYWuAsItx49rMUyHlEd/Po0d</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>MG_MUR1xBkXcO3U1mYSpnGptU/UQnirTO94Y7rRdgYWuAsItx49rMUyHlEd/Po0d</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="dcfd11e9-ab20-4baa-bc4f-034714d96d2d">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="86c72cfd-b6d5-472b-829c-092301d44d70">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="594d2b2b-a3dc-4c39-b97a-ae5f94a05517">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="PropertyTransfer 1" id="4c1e9126-8e7d-48b4-b664-3f6a240199cd">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false" ignoreEmpty="false" transferChildNodes="false">
+            <con:name>access_token</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Access token stg</con:sourceStep>
+            <con:sourcePath>$['access_token']</con:sourcePath>
+            <con:targetType>access_token</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="manualTestStep" name="Manual" id="97228830-a612-40ab-ae85-5436876b6c55">
+        <con:settings/>
+        <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </con:testStep>
+      <con:testStep type="delay" name="Delay" id="0474ee62-8a32-4f7a-a8c1-e9ab7b3206d9">
+        <con:settings/>
+        <con:config><delay>100000</delay></con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="POST akamai" id="483ba79d-e93e-4153-8d49-1addd60ef48d">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="42d25b3b-f639-4a23-af37-3c73bebd08ce" name="POST akamai" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-Type" value="application/x-www-form-urlencoded" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>https://qa-id.nissan.io/9d5118a8-dc9c-4e8f-8924-4781cf369f41/login/token</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="26a8d785-a3fd-4e9a-8ea8-073a82cb3dbe" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>grant_type</con:name>
+              <con:value>authorization_code</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>authorization_code</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>redirect_uri</con:name>
+              <con:value>https://documentation.akamai.com/callback</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>https://documentation.akamai.com/callback</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>code</con:name>
+              <con:value>EkDxehe-1g7Y0SYUTUKec1qgdaTqEmSE</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>EkDxehe-1g7Y0SYUTUKec1qgdaTqEmSE</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_id</con:name>
+              <con:value>b5037158-ee67-4b6a-941d-8870dfb8a4d2</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>b5037158-ee67-4b6a-941d-8870dfb8a4d2</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_secret</con:name>
+              <con:value>STvGvfM0IIKtX40eHnTaldFUgfUsjRf_QvnNX7LD63EnPUU1TOGqK5_Zw21AGQq687HF8xd3WlDstBBtgh_fAg</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>STvGvfM0IIKtX40eHnTaldFUgfUsjRf_QvnNX7LD63EnPUU1TOGqK5_Zw21AGQq687HF8xd3WlDstBBtgh_fAg</con:default>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep><con:testStep type="manualTestStep" name="Manual 2" id="8ebaeed3-76e0-424f-a469-01b4747f1df4"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep>
+      <con:testStep type="delay" name="Delay 2" id="6562ad10-f482-495c-bb9b-f30058e3e84d"><con:settings/><con:config><delay>100000</delay></con:config></con:testStep><con:testStep type="httprequest" name="Create User" id="2e1a24c7-f10e-431b-9942-d6cf22844d6b">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="a724b756-929b-420e-a64b-1751680c859e" name="Create User" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KUA_STG_URL}/user-adapter/v1/users</con:endpoint>
+          <con:request>{
+
+    "data": {
+
+        "type": "User",
+
+        "attributes": {
+
+            "realm": "n-ciam-jp",
+
+            "ropId": "${#Project#ropid}",
+
+            "fid": "${#Project#fid}",
+
+            "idp": "JPCIAM"
+
+        }
+
+    }
+
+}</con:request>
+          <con:assertion type="Valid HTTP Status Codes" id="8d812b83-f8d3-4d0a-99f0-63534f6c9287" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>201</codes></con:configuration></con:assertion><con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="manualTestStep" name="Manual 3" id="7cd495f0-eb0a-4810-b274-f3a80417a105"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="delay" name="Delay 3" id="78f42f7f-7e90-4cd6-90dd-b74033b3b5dd"><con:settings/><con:config><delay>100000</delay></con:config></con:testStep><con:testStep type="httprequest" name="Kauth" id="924de035-da0d-45fe-9d2f-6c173fa60b27">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="2e33f534-3963-447d-a695-6e8b917170d4" name="Kauth" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="ExternalToken" value="eyJhbGciOiJSUzI1NiIsImtpZCI6ImJlZDJiZDc1MDQxZjdlNTg4NDE1MzdmNjMyM2Q3NzE1ZWIyODc3NDMiLCJ0eXAiOiJKV1QifQ.eyJhY3IiOiJ1cm46YWthbWFpLWljOm5pc3Q6ODAwLTYzLTM6YWFsOjIiLCJhbXIiOlsicHdkIiwiZW1haWwiLCJtZmEiLCJyYmEiXSwiYXRfaGFzaCI6IklVYWJ3YllPb2g5SmFuNXFIVHZremciLCJhdWQiOlsiYjUwMzcxNTgtZWU2Ny00YjZhLTk0MWQtODg3MGRmYjhhNGQyIl0sImF1dGhfdGltZSI6MTcwMjM3OTcyMiwiYXpwIjoiYjUwMzcxNTgtZWU2Ny00YjZhLTk0MWQtODg3MGRmYjhhNGQyIiwiZW1haWwiOiJqcHVzZXIxMjZAeW9wbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZXhwIjoxNzAyMzgzNDYxLCJnbG9iYWxfc3ViIjoiY2FwdHVyZS12MTovL25pc3Nhbi1tb3Rvci1jby1sdGQtc3RhZ2luZy50ay1kZXYuamFucmFpbmNhcHR1cmUuY29tL3RzNW54NHpxZzJnd3dteGMzcWF5czk5aGc0L3VzZXIvM2QwMTY0Y2YtODM1Mi00MGMzLTlkYjYtNWQzMDAzNDU4YWE0IiwiaWF0IjoxNzAyMzc5ODYxLCJpc3MiOiJodHRwczovL3FhLWlkLm5pc3Nhbi5pby85ZDUxMThhOC1kYzljLTRlOGYtODkyNC00NzgxY2YzNjlmNDEvbG9naW4iLCJqdGkiOiI4MVNKbUNnbHgzZ19fRU1BMldiYXdvdkUiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOmZhbHNlLCJzaWQiOiIwMzgzZmU1Mi1iMmVmLTRmZGYtYmM3ZS05NzIzNzNkZmFmZGEiLCJzdWIiOiIzZDAxNjRjZi04MzUyLTQwYzMtOWRiNi01ZDMwMDM0NThhYTQifQ.bQx7pdZZaLURRVFDZBuM14hsuqdcobIWDLkN_Bv-oeV3gcpI-sVivrza8egLyLuHUvJ12DBu7qd_v8Pq4V5i5c_ewCXtA_cIFcOFB5Re-Kdp5mFjKzYl3VwcUjArC4o0_xL0MHXeNNJjqZhrycMnNmHCXP-Tr6vsvcv-wGkBeYjKY8A039R1hzqk4w56s9uO2LcCYLqzjD7Aatc50UzSGhgrQppe2HF1y9Wh6-uJQpnQyXFPkXg6Cbl4fLvhj32AEBpUeRwzmW-DXebVwMkHj7Roa9rZtissyg-mZfzpUVQ3W67sDmcL65xdOL17gRy7FjZ_Zj7xMPVkeXvDcFb_NA" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/x-www-form-urlencoded" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/oauth2/n-ciam-jp-sta/access_token?auth_chain=appc</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="4bfb6e13-b981-4d1d-bbc9-e6e4997c7d7c" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>grant_type</con:name>
+              <con:value>password</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>password</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>username</con:name>
+              <con:value>anonymous</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>anonymous</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>password</con:name>
+              <con:value>anonymous</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>anonymous</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_id</con:name>
+              <con:value>n-ciam-offboard-sta</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>n-ciam-offboard-sta</con:default>
+            </con:parameter>
+            <con:parameter>
+              <con:name>client_secret</con:name>
+              <con:value>rNQCZaEBQzrvqaBn1dAJFEBBOaca6Kp6eUXSqMt21P6Lw8knpI9uWCCZ0AnVC40v</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>rNQCZaEBQzrvqaBn1dAJFEBBOaca6Kp6eUXSqMt21P6Lw8knpI9uWCCZ0AnVC40v</con:default>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="manualTestStep" name="Manual 4" id="cc31484b-4134-4744-86e2-1c0b7b74634b"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="delay" name="Delay 4" id="544ebb6c-460c-439e-afd4-a118812e2405"><con:settings/><con:config><delay>100000</delay></con:config></con:testStep><con:testStep type="httprequest" name="get User token info" id="aad927a9-2d5c-4c00-940d-303958c7b6a0">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="a724b756-929b-420e-a64b-1751680c859e" name="get User token info" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="Bearer 9a5625f2-1d3a-4447-9666-d6e9f2ce9e79" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#KUA_STG_URL}/user-adapter/v1/users/token-info</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="7f399357-2962-4235-951b-89f94e5a8923" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="get User  info" id="9b466681-ba3d-45f6-bedc-457f4dd0cb54" disabled="true">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="a724b756-929b-420e-a64b-1751680c859e" name="get User  info" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="Authorization" value="${#Project#Authorization}" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="Content-Type" value="application/vnd.api+json" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>https://alliance-platform-usersadapter-staging.apps.stage-jp.kamereon.io/user-adapter/v1/users/678832</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="POST akamai_1" id="03121f2f-09cd-49de-a5a3-8ced07e5312a" disabled="true">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="42d25b3b-f639-4a23-af37-3c73bebd08ce" name="POST akamai_1" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-Type" value="application/x-www-form-urlencoded" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>https://qa-id.nissan.io/9d5118a8-dc9c-4e8f-8924-4781cf369f41/login/token</con:endpoint>
+          <con:request>{
+grant_type:authorization_code,
+redirect_uri:https://documentation.akamai.com/callback,
+code:SQmXj1xp2w4SnRPuLc9wnRC9FJ3Jg4C3,
+client_id:b5037158-ee67-4b6a-941d-8870dfb8a4d2,
+client_secret:STvGvfM0IIKtX40eHnTaldFUgfUsjRf_QvnNX7LD63EnPUU1TOGqK5_Zw21AGQq687HF8xd3WlDstBBtgh_fAg
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="Step2 : an authorization code" id="7ff00479-3f43-4a1b-9aa1-41d625080997" disabled="true">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="525eb742-f297-4898-ac05-4902bb5f37e8" name="Step2 : an authorization code" downloadIncludedResources="false" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Cookie" value="kauthSession=${#Project#tokenId}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@follow-redirects">false</con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/oauth2/realms/root/realms/a-ncb-int/authorize</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="ac64afee-9a4d-48fd-ba35-95fb75a0d730" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>302</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter required="true">
+              <con:name>client_id</con:name>
+              <con:value>a-ncb-int-poc</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb-int-poc</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>response_type</con:name>
+              <con:value>code</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>code</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>scope</con:name>
+              <con:value>openid profile vehicles</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>openid profile vehicles</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>redirect_uri</con:name>
+              <con:value>http://localhost:4200</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>http://localhost:4200</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>nonce</con:name>
+              <con:value>test</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>test</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>state</con:name>
+              <con:value>test</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>test</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>realm</con:name>
+              <con:value>a-ncb-int</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb-int</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="6b66666d-ce08-4faa-b555-2395f451ba97">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Groovy Script - to seperate code value from the location header" id="2276c039-7309-4096-94d2-d3791e930fef" disabled="true">
+        <con:settings/>
+        <con:config>
+          <script>import com.eviware.soapui.support.StringUtils
+def value = testRunner.testCase.testSteps["Step2 : an authorization code"].testRequest.response.responseHeaders["location"]
+log.info(value)
+
+testRunner.testCase.testSuite.project.setPropertyValue( "location_value", value.toString() )
+
+//def urlString = '[http://localhost:4200?code=xxxxxxxxxxxxxxx&amp;iss=https://ereon.org:443/kauth/oauth2/realms/root/realms/a-ncb-int&amp;state=test&amp;client_id=a-ncb-int-poc]'
+
+//def a= '${#Project#STEP2_LOCATION_VALUE}'
+
+//def a1 testCaseProperty = testRunner.testCase.getPropertyValue("")
+
+def a = testRunner.testCase.testSuite.project.getPropertyValue( "location_value" )
+
+log.info(a)
+
+def urlString= a
+
+def urlStart = urlString.indexOf("[") + 1
+def urlEnd = urlString.indexOf("]")
+def url = new URL(urlString.substring(urlStart, urlEnd))
+
+def query = url.getQuery()
+
+def queryParams = query.split('&amp;')
+
+String code = null
+
+queryParams.each {
+  param ->
+
+    def keyAndValue = param.split('=')
+
+  if (keyAndValue[0] == 'code') {
+
+    code = keyAndValue[1]
+
+  }
+
+}
+
+if (StringUtils.isNullOrEmpty(code)) {
+
+  log.error("Could not extract code from URL")
+
+} else {
+
+  log.info("The code value is: $code")
+
+  //testRunner.testCase.testSteps["Test Request"].setPropertyValue("codeValue", code)
+  testRunner.testCase.testSuite.project.setPropertyValue( "codeValue", code )
+
+}</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="properties" name="Properties 1" id="90bb3be4-53b5-4c98-886d-1fa81fcb884f" disabled="true">
+        <con:settings/>
+        <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:properties>
+            <con:property>
+              <con:name>access_token</con:name>
+              <con:value>eyJ0eXAiOiJKV1QiLCJraWQiOiJZRzU1N3duVzJ5SGRPb1FuaFQvM3o4ZjdCY1U9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJrLWludGVybmFsLXBvc3RtYW4teG02LXN0YSIsImN0cyI6Ik9BVVRIMl9TVEFURUxFU1NfR1JBTlQiLCJhdWRpdFRyYWNraW5nSWQiOiJmYTNhZDc1ZS03ZmJjLTRjYjctYjkyNy03OTk2YjgxYWExNTktMjgyNDQ4ODciLCJpc3MiOiJodHRwczovL2Rldi5qcC5hdXRoLmthbWVyZW9uLm9yZzo0NDMva2F1dGgvb2F1dGgyL2staW50ZXJuYWwtc3RhIiwidG9rZW5OYW1lIjoiYWNjZXNzX3Rva2VuIiwidG9rZW5fdHlwZSI6IkJlYXJlciIsImF1dGhHcmFudElkIjoiMWI3NTdhNDctZDZmYi00ZTUxLThiODMtZTkyYTdmOTI0YjY4IiwiYXVkIjoiay1pbnRlcm5hbC1wb3N0bWFuLXhtNi1zdGEiLCJuYmYiOjE3MDE5Mzg0MTYsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJzY29wZSI6WyJhY21zLmpwLmtjYS5jYXJhY3Rpb24iLCJhY21zLmpwLmtjYS5jYXJkYXRhIiwiYWNtcy5qcC5rY2EuY2Fyc2V0dGluZ3MiLCJhY21zLmpwLmtjYS5kdGJ4IiwiYWNtcy5qcC5rY2EuaGlzdG9yeSIsImFjbXMuanAua2NhLm11bHRpY21kIiwiYWNtcy5qcC5rY2Eubm90aWYiLCJhY21zLmpwLmtjYS5vdHBjaGtzIiwiYWNtcy5qcC5rY2Eub3RwcyIsImFjbXMuanAua2NhLnByaXZhY3kiLCJhY21zLmpwLmtkaWFnLmJmZiIsImFjbXMuanAua2RpYWcuc2VydmljZS5yIiwiYWNtcy5qcC5rZGlzLmRpc2NvdmVyeSIsImFjbXMuanAua2Rpcy5tbm8iLCJhY21zLmpwLmtkaXMudmVoIiwiYWNtcy5qcC5rZGlzLnZlaHJlZ2lvbiIsImFjbXMuanAua2ZvZC5hY3RpdmF0aW9uLnciLCJhY21zLmpwLmtuYS5jdXN0b20udyIsImFjbXMuanAua25hLmRpY3Rpb25hcnkuciIsImFjbXMuanAua25hLmRpY3Rpb25hcnkudyIsImFjbXMuanAua25hLmhpc3RvcnkuciIsImFjbXMuanAua25hLmhpc3RvcnkudyIsImFjbXMuanAua25hLm5vdGlmaWNhdGlvbnMudyIsImFjbXMuanAua25hLnJ1bGVzLnIiLCJhY21zLmpwLmtuYS5ydWxlcy53IiwiYWNtcy5qcC5rbmEuc2V0dGluZ3MuciIsImFjbXMuanAua25hLnNldHRpbmdzLnciLCJhY21zLmpwLmtucG9wLmluaXQiLCJhY21zLmpwLmtucG9wLnZhbGlkYXRlIiwiYWNtcy5qcC5rcGRhLnRyaXAiLCJhY21zLmpwLmtwb3AuYjJiLnciLCJhY21zLmpwLmtzYS5wYXJ0bm90aWYiLCJhY21zLmpwLmtzYS5zZXJ2aWNlLmFjdGl2YXRpb24uciIsImFjbXMuanAua3NhLnNlcnZpY2UuYWN0aXZhdGlvbi53IiwiYWNtcy5qcC5rc2Euc2VydmljZS5jYXRhbG9ndWUuciIsImFjbXMuanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnciLCJhY21zLmpwLmtzYS5zaWQuYWN0aXZhdGlvbi5yIiwiYWNtcy5qcC5rc2Euc2lkLmFjdGl2YXRpb24udyIsImFjbXMuanAua3NjLnIiLCJhY21zLmpwLmt0cy5hcHBzIiwiYWNtcy5qcC5rdWEudXNlci5mZWRlcmF0ZS5yIiwiYWNtcy5qcC5rdWEudXNlci5mZWRlcmF0ZS53IiwiYWNtcy5qcC5rdWEudXNlci5yIiwiYWNtcy5qcC5rdWEudXNlci53IiwiYWNtcy5qcC5rdmcuZmxlZXQuciIsImFjbXMuanAua3ZnLmZsZWV0LnciLCJhY21zLmpwLmt2Zy52ZWhpY2xlLXRyYWNraW5nLWNvbnNlbnQuciIsImFjbXMuanAua3ZnLnZlaGljbGUtdHJhY2tpbmctY29uc2VudC53IiwiYWNtcy5qcC5rdnNkLnNwZWMiLCJhY21zLmpwLnRzcC5hYWNuIiwiYWNtcy5qcC50c3AuYWNuIiwiYWNtcy5qcC50c3AuYmNhbGwiLCJhY21zLmpwLnRzcC5jY2FsbCIsImFjbXMuanAudHNwLmVjYWxsIiwiYWNtcy5qcC50c3AuaGNhbGwiLCJhY21zLmpwLnRzcC5wdXNocG9pIiwiYWNtcy5qcC50c3AucmVmcmVzaGxvY2F0aW9uIiwiYWNtcy5qcC50c3AucmhsIiwiYWNtcy5qcC50c3Aucmx1IiwiYWNtcy5qcC50c3Auc3Vic2NyaXB0aW9uIiwiYWNtcy5qcC50c3Auc3Z0IiwiYWNtcy5qcC50c3Auc3Z0YiIsImFjbXMuanAudHNwLnVzZXIiLCJrYW0uanAua2NhLmIyYmRhdGEiLCJrYW0uanAua2NhLmJmcCIsImthbS5qcC5rY2EuY2FyYWN0aW9uIiwia2FtLmpwLmtjYS5jYXJkYXRhIiwia2FtLmpwLmtjYS5jYXJzZXR0aW5ncyIsImthbS5qcC5rY2EuY3J1ZCIsImthbS5qcC5rY2EuZGlzY292ZXJ5Iiwia2FtLmpwLmtjYS5kb25nbGUiLCJrYW0uanAua2NhLmR0YngiLCJrYW0uanAua2NhLmZvdGEuYWN0aW9uIiwia2FtLmpwLmtjYS5oaXN0b3J5Iiwia2FtLmpwLmtjYS5qb3VybmV5cyIsImthbS5qcC5rY2Eua2RpYWciLCJrYW0uanAua2NhLm11bHRpY21kIiwia2FtLmpwLmtjYS5ub3RpZiIsImthbS5qcC5rY2Eub3RwY2hrcyIsImthbS5qcC5rY2Eub3RwcyIsImthbS5qcC5rY2EucHJpdmFjeSIsImthbS5qcC5rY2Euc3JwIiwia2FtLmpwLmtjYS50ZXN0Iiwia2FtLmpwLmtjYS50c3AiLCJrYW0uanAua2RpYWcuaGVhbHRoLXN0YXR1cyIsImthbS5qcC5rZGlhZy5rZGlhZyIsImthbS5qcC5rZGlzLmRpc2NvdmVyeSIsImthbS5qcC5rZGlzLmRvbmdsZSIsImthbS5qcC5rZGlzLmtkaWFnIiwia2FtLmpwLmtkaXMudGVzdCIsImthbS5qcC5rZGlzLnZlaCIsImthbS5qcC5rZGlzLnZlaGJhY2twb3J0Iiwia2FtLmpwLmtkaXMudmVoZGVsZXRpb24iLCJrYW0uanAua2Rpcy52ZWhpZGVudGl0eSIsImthbS5qcC5rZGlzLnZlaG1vY2siLCJrYW0uanAua2Rpcy52ZWhyZWdpb24iLCJrYW0uanAua2Rpcy52ZWh1cGRhdGUiLCJrYW0uanAua2ZhLmRhdGEuciIsImthbS5qcC5rZmEuZXh0cmFjdC5yIiwia2FtLmpwLmtmYS5leHRyYWN0LnciLCJrYW0uanAua2ZhLmZsZWV0LnIiLCJrYW0uanAua2ZhLmZsZWV0LnciLCJrYW0uanAua2ZhLmtkaWFnIiwia2FtLmpwLmtmYS5tdWx0aWNtZCIsImthbS5qcC5rbG9nLmtkaWFnIiwia2FtLmpwLmtsb2cuciIsImthbS5qcC5rbG9nLnciLCJrYW0uanAua21uLnIiLCJrYW0uanAua21uLnciLCJrYW0uanAua25hLmN1c3RvbS53Iiwia2FtLmpwLmtuYS5rZGlhZyIsImthbS5qcC5rbmEuc2V0dGluZ3MuciIsImthbS5qcC5rbmEudHJpZ2dlci53Iiwia2FtLmpwLmtuYS53Iiwia2FtLmpwLmtuby53Iiwia2FtLmpwLmtucG9wLnIiLCJrYW0uanAua25wb3AudmFsaWRhdGUiLCJrYW0uanAua3BkYS5pbnRlcm5hbCIsImthbS5qcC5rcGRhLnRyaXAiLCJrYW0uanAua3NhLmtkaWFnIiwia2FtLmpwLmtzYS5zZXJ2aWNlLmFjdGl2YXRpb24uciIsImthbS5qcC5rc2Euc2VydmljZS5hY3RpdmF0aW9uLnciLCJrYW0uanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnIiLCJrYW0uanAua3NhLnNlcnZpY2UuY2F0YWxvZ3VlLnciLCJrYW0uanAua3NjLnIiLCJrYW0uanAua3RvLnRva2VuIiwia2FtLmpwLmt0cy5hcHBzIiwia2FtLmpwLmt0cy5rZGlhZyIsImthbS5qcC5rdHMudHNwLmNvbmYuciIsImthbS5qcC5rdHMudHNwLmNvbmYudyIsImthbS5qcC5rdWEua2RpYWciLCJrYW0uanAua3VhLnN1cHBvcnQuciIsImthbS5qcC5rdWEuc3VwcG9ydC53Iiwia2FtLmpwLmt1YS51c2VyLmZlZGVyYXRlLnIiLCJrYW0uanAua3VhLnVzZXIuZmVkZXJhdGUudyIsImthbS5qcC5rdWEudXNlci5yIiwia2FtLmpwLmt1YS51c2VyLnciLCJrYW0uanAua3V2cy5hdXRob3JpdHkuciIsImthbS5qcC5rdXZzLmF1dGhvcml0eS53Iiwia2FtLmpwLmt1dnMucGVybWlzc2lvbi5yIiwia2FtLmpwLmt1dnMucGVybWlzc2lvbi53Iiwia2FtLmpwLmt2Zy5mbGVldC5yIiwia2FtLmpwLmt2Zy5mbGVldC53Iiwia2FtLmpwLmt2Zy52ZWhpY2xlLXRyYWNraW5nLWNvbnNlbnQuciIsImthbS5qcC5rdmcudmVoaWNsZS10cmFja2luZy1jb25zZW50LnciLCJrYW0uanAua3ZzLnNlcnZpY2VzLnIiLCJrYW0uanAua3ZzLnNlcnZpY2VzLnciLCJrYW0uanAubmFtLmFjY291bnQuciIsImthbS5qcC5uYW0uYWNjb3VudC53Iiwia2FtLmpwLm5hbS5zdXBwb3J0LnIiLCJrYW0uanAucG5jaCIsImthbS5qcC5zY2hlZHVsZXIudGFzayIsImthbS5qcC5zY2hlZHVsZXIudGVzdCIsImthbWVyZW9uLmpwLnNlcnZpY2Uuc3luY2hyb25pemUiXSwiYXV0aF90aW1lIjoxNzAxOTM4NDE2LCJyZWFsbSI6Ii9rLWludGVybmFsLXN0YSIsImV4cCI6MTcwMTk0MjAxNiwiaWF0IjoxNzAxOTM4NDE2LCJleHBpcmVzX2luIjozNjAwLCJqdGkiOiI3NjAyM2VlMi0zNmIyLTQ2MWYtYTIzMC01OGY5OTMyZDZhMzkiLCJ1X3R5cGUiOiJzIn0.AGai_cjznebx98tw8qqD64wKiRupBWH3EI_a7xYHJm1P_Z0m259rpvfiULm3iKXxUEWIYDZGpzNoQAFrSAo6rT1BzWfxpyZVPOfLWZeF9emwyqGaC3lmDCCUxGZpcV00obqxjkX2nvm3u3I6Se27jgvQjOIZdNTFY6RrpacgXX0V15EIfMmVhngowt1nnfKq-YKwxBBwvOd8fWvtCMAcK-3qvYXTOSXa4Qyor5DkkMeqGCXNzVQ94T_LykcuPndmBaRnCx0gR5XbGDtDE6dK7Jd0aS6MiEdXOpwJ03vWQKV72heZKPIBSlHce4GnoDUfXpjXcAKUS_6zLg4Fg39QGU6Vgys5KJkr6uQkCEgxF4hIflrowiuTGcouSv7xr-lGF-yPAZ5ZrHGMJ7cHFIIUCjk2f1ar0czUi1m8AQAx4B_rRd1veg6FMAbtjMa8M9ZMXcZlWnwi1NQRWWXlB3WbS8G4Zdjf8IByX3x4Mg3Vcr4OJP_ll-lVkHsbqruDtOSiBFU8ui6OLnY8ZDGd06hKesY0Qg2qLJNWog-Zd9N_--lM7QvmtwGcLy8_m6krIwxNpXPbWhlK3HuRW_9RBX5-OgyfjT4AXniC8SKn4fC3nMWdZl9-CGdfhxkZ5jDRIx3NnxpferoO4V7xRXgbr8wYFiih0oZhSFf-D4_t3KSROF4</con:value>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>

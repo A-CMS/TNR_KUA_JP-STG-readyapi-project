@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="05f8f2b5-ad47-48b2-bf7d-646f4b10f2f0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="user token a-ncb ccs1" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings id="f3a561da-35d5-496e-85f8-86c3b4d6dca6"><con:setting id="05f8f2b5-ad47-48b2-bf7d-646f4b10f2f0fileName">user-token-a-ncb-ccs1</con:setting></con:settings>
+      <con:testStep type="httprequest" name="Step1 : authenticate" id="c0750a1c-3009-4466-849b-53173a6c2fd1">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="ba78dfc5-7d90-49b9-a947-bc921a85d139" name="Step1 : authenticate" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment>&lt;con:entry key="X-OpenAM-Username" value="nr.testingemail2@gmail.com" xmlns:con="http://eviware.com/soapui/config"/>&lt;con:entry key="X-OpenAM-Password" value="Password1!" xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/json/realms/a-ncb-int/authenticate</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="fde61fbf-af5f-4d15-87da-e850c6634221" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property Transfer - tokenId" id="3a0d14b6-ba67-492f-aa9a-3e56e859105a">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>tokenId</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Step1 : authenticate</con:sourceStep>
+            <con:sourcePath>$['tokenId']</con:sourcePath>
+            <con:targetType>LATEST_AUTH_TOKEN</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="Step2 : an authorization code" id="20fdba27-8e75-4dbb-9147-3a2fa1e8193d">
+        <con:settings/>
+        <con:config method="GET" xsi:type="con:HttpRequest" id="525eb742-f297-4898-ac05-4902bb5f37e8" name="Step2 : an authorization code" downloadIncludedResources="false" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Cookie" value="kauthSession=${#Project#tokenId}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@follow-redirects">false</con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/oauth2/realms/root/realms/a-ncb-int/authorize</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="ac64afee-9a4d-48fd-ba35-95fb75a0d730" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>302</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter required="true">
+              <con:name>client_id</con:name>
+              <con:value>a-ncb-int-poc</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb-int-poc</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>response_type</con:name>
+              <con:value>code</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>code</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>scope</con:name>
+              <con:value>openid profile vehicles</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>openid profile vehicles</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>redirect_uri</con:name>
+              <con:value>http://localhost:4200</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>http://localhost:4200</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>nonce</con:name>
+              <con:value>test</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>test</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>state</con:name>
+              <con:value>test</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>test</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>realm</con:name>
+              <con:value>a-ncb-int</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb-int</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="6b66666d-ce08-4faa-b555-2395f451ba97">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Groovy Script" id="d090cb34-61a3-4f75-a845-a7b0206997e1" disabled="true">
+        <con:settings/>
+        <con:config>
+          <script>def headerValue = testRunner.testCase.getTestStepByName("Step2 : an authorization code").httpRequest.response.responseHeaders["Location"]
+// Save the value to a test case property
+/testRunner.testCase.setPropertyValue( "location_value", headerValue.toString() )
+/def a = testRunner.testCase.testSuite.project.getPropertyValue( "location_value" )</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Groovy Script - to seperate code value from the location header" id="3a88629b-c866-494c-b778-490a6a81c797">
+        <con:settings/>
+        <con:config>
+          <script>import com.eviware.soapui.support.StringUtils
+def value = testRunner.testCase.testSteps["Step2 : an authorization code"].testRequest.response.responseHeaders["location"]
+log.info(value)
+
+testRunner.testCase.testSuite.project.setPropertyValue( "location_value", value.toString() )
+
+//def urlString = '[http://localhost:4200?code=xxxxxxxxxxxxxxx&amp;iss=https://ereon.org:443/kauth/oauth2/realms/root/realms/a-ncb-int&amp;state=test&amp;client_id=a-ncb-int-poc]'
+
+//def a= '${#Project#STEP2_LOCATION_VALUE}'
+
+//def a1 testCaseProperty = testRunner.testCase.getPropertyValue("")
+
+def a = testRunner.testCase.testSuite.project.getPropertyValue( "location_value" )
+
+log.info(a)
+
+def urlString= a
+
+def urlStart = urlString.indexOf("[") + 1
+def urlEnd = urlString.indexOf("]")
+def url = new URL(urlString.substring(urlStart, urlEnd))
+
+def query = url.getQuery()
+
+def queryParams = query.split('&amp;')
+
+String code = null
+
+queryParams.each {
+  param ->
+
+    def keyAndValue = param.split('=')
+
+  if (keyAndValue[0] == 'code') {
+
+    code = keyAndValue[1]
+
+  }
+
+}
+
+if (StringUtils.isNullOrEmpty(code)) {
+
+  log.error("Could not extract code from URL")
+
+} else {
+
+  log.info("The code value is: $code")
+
+  //testRunner.testCase.testSteps["Test Request"].setPropertyValue("codeValue", code)
+  testRunner.testCase.testSuite.project.setPropertyValue( "codeValue", code )
+
+}</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="httprequest" name="Step3: User-token" id="bbb2f6d9-06f5-4591-b775-aba51ff329ee">
+        <con:settings/>
+        <con:config method="POST" xsi:type="con:HttpRequest" id="525eb742-f297-4898-ac05-4902bb5f37e8" name="Step3: User-token" postQueryString="false" mediaType="multipart/mixed" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-Type" value="application/x-www-form-urlencoded" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@follow-redirects">true</con:setting>
+            <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@use-get-method-on-302-redirect">false</con:setting>
+          </con:settings>
+          <con:endpoint>https://dev.jp.auth.kamereon.org/kauth/oauth2/a-ncb-int/access_token</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="7f5cc64c-7084-4f43-b111-818d462b360c" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:parameter required="true" disableUrlEncoding="false">
+              <con:name>grant_type</con:name>
+              <con:value>authorization_code</con:value>
+              <con:style>QUERY</con:style>
+              <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+              <con:default>authorization_code</con:default>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>client_id</con:name>
+              <con:value>a-ncb-int-poc</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>a-ncb-int-poc</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>client_secret</con:name>
+              <con:value>WKfQ7vuRzGubg4mbn2pFMzQuafKwsurVV2pp9RXKyr5UNxVn9TVu6MfFdmkRKZ</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>WKfQ7vuRzGubg4mbn2pFMzQuafKwsurVV2pp9RXKyr5UNxVn9TVu6MfFdmkRKZ</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>code</con:name>
+              <con:value>${#Project#code}</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>${#Project#code}</con:default>
+              <con:path xsi:nil="true"/>
+              <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+              <con:name>redirect_uri</con:name>
+              <con:value>http://localhost:4200</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>http://localhost:4200</con:default>
+            </con:parameter>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="6b66666d-ce08-4faa-b555-2395f451ba97">
+              <con:authProfile>Basic</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property Transfer - ccs1 token" id="d5d5c330-a7b9-4a27-a218-f5ed816d5f2c" disabled="true">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>ccs1</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Step3: User-token</con:sourceStep>
+            <con:sourcePath>$['access_token']</con:sourcePath>
+            <con:targetType>ccs1</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>location_value</con:name>
+          <con:value>null</con:value>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="32162e4c-1668-4bbd-abb4-8d0031b83401">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>

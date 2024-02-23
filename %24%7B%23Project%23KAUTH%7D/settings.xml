@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="f374238c-d029-4ebb-8706-95db64a5642e" wadlVersion="http://wadl.dev.java.net/2009/02" name="${#Project#KAUTH}" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings id="18937096-19f7-4fd6-adf3-904464651703"><con:setting id="f374238c-d029-4ebb-8706-95db64a5642efileName">%24%7B%23Project%23KAUTH%7D</con:setting></con:settings>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>${#Project#KAUTH}</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="56722cba-6f8c-40b5-99d2-7505ad15e616">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    
+  </con:interface>
